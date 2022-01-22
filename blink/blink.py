@@ -1,4 +1,4 @@
-from flask import request, render_template, Flask, send_file
+from Flask import request, render_template, Flask, send_file
 import os
 import base64
 from data import *
