@@ -17,7 +17,7 @@ def home():
 
 
 @app.route('/image_upload', methods=['POST'])
-def up_load_image() -> str:
+def up_load_image():
     '''handle image,return a result page'''
 
     try:

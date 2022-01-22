@@ -8,13 +8,13 @@ import string
 import random
 
 
-def random_gen(size=6, chars=string.ascii_uppercase + string.digits) -> string:
+def random_gen(size=6, chars=string.ascii_uppercase + string.digits):
     '''generate a random name for file'''
 
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-def factors(num) -> tuple:
+def factors(num):
     '''find two closest factors of a number'''
 
     def is_prime(x) -> bool:
@@ -58,14 +58,14 @@ def factors(num) -> tuple:
             return (start, int(num/start))
 
 
-def clean_temp() -> None:
+def clean_temp():
     '''clean up temp folder for use'''
 
     for x in glob('./temp/*.*'):
         os.remove(x)
 
 
-def image_download(url) -> Image:
+def image_download(url):
     '''download image from url'''
 
     img = Image.open(requests.get(url, stream=True).raw)
@@ -96,7 +96,7 @@ def file_slices(file):
     return output_list
 
 
-def file_upload(file: str) -> json:
+def file_upload(file: str):
     '''upload file'''
 
     with open(file, 'rb')as file_to_be_upload:
