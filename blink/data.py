@@ -1,6 +1,4 @@
 import json
-import os
-from pathlib import Path
 
 # downloads_path = str(Path.home() / "Downloads")
 # desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
