@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<style>
+    textarea {
+        columns: 40;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 98%;
+        resize: none;
+    }
+</style>
+
+<head>
+    <title>Blink-in output</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1,
+minimum-scale=1,maximum-scale=1,user-scalable=no' />
+</head>
+
+<body>
+    <h1>result</h1>
+    <textarea id="result"></textarea>
+    <button onclick='copy()'>copy</button>
+    <h2>fail to upload:</h2>
+</body>
+
+<script>
+    function copy() {
+        let textarea = document.getElementById('result');
+        textarea.select();
+        document.execCommand('copy');
+    }
+</script>
+
+</html>
