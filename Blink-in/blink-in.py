@@ -1,5 +1,3 @@
-from crypt import methods
-import logging
 from tools import *
 from config import *
 from html_pages import *
