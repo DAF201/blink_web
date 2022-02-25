@@ -1,0 +1,4 @@
+02/20/2022:
+server become open to public
+02/24/2022:
+update auto banning
