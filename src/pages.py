@@ -1,0 +1,22 @@
+import tornado.web
+from src.config import *
+from tornado_http_auth import DigestAuthMixin, auth_required
+import hashlib
+import time
+
+
+class login_page(tornado.web.RequestHandler, DigestAuthMixin):
+    @auth_required(realm='Protected', auth_func=credentials.get)
+    def get(self):
+        if not self.get_cookie('auth'):
+            # 'shio' means salt
+            new_cookie = hashlib.sha256(
+                bytes(int(time.time()))+b'shio').hexdigest()
+            self.set_cookie('auth', new_cookie)
+            cookie_data.append(new_cookie)
+            with open(COOKIE_DATA_BASE, 'w')as cookie_data_base:
+                json.dump(cookie_data, cookie_data_base)
+        else:
+            if self.get_cookie('auth') not in cookie_data:
+                return
+        self.render(LOGIN_PAGE)
