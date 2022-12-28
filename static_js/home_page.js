@@ -37,4 +37,7 @@ async function on_load_display() {
 function play_random_music() {
     document.getElementById("media_music").src = "/music?music=random"
     document.getElementById("media_music").play()
+    request('get', '/music?music=get_title', [], function (args) {
+        document.getElementById("media_music_now_playing").innerHTML = args
+    })
 }

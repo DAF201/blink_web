@@ -33,11 +33,19 @@ class login_page(tornado.web.RequestHandler, DigestAuthMixin):
         self.render(LOGIN_PAGE)
 
 
+NOW_PLAYING = ''
+
+
 class music_playing(tornado.web.RequestHandler):
     def get(self, *keys):
+        global NOW_PLAYING
         music = self.get_argument('music')
         if music == 'random':
             with static_files(MUSIC_PLAYLIST) as music_playlist:
                 music_title = random.choice(
                     list(music_playlist.__get_raw_list__().keys()))
                 self.write(music_playlist.__get_file__(music_title))
+                NOW_PLAYING = music_title
+        if music == 'get_title':
+            print(NOW_PLAYING)
+            self.write(NOW_PLAYING)
