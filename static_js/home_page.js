@@ -9,18 +9,7 @@ function skip_displaying() {
 let announcement_document = "Hello, this is DAF201.<br> Sadly, Blink-in turns to be APIs only currently due to some personal reasons.<br> Thank you for your understanding!"
 let displaying_announcement = ""
 async function on_load_display() {
-    document.body.addEventListener("click", skip_displaying)
-    document.body.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("login").click();
-        }
-    });
-    document.getElementById("media_music").addEventListener("ended", (event) => {
-        document.getElementById("media_music").src = "/music?music=random"
-        document.getElementById("media_music").play()
-    })
-    document.body.param = ["announcement", "announcement_finished"]
+    add_onload_event_listeners()
     for (let i = 0; i < announcement_document.length + 1; i++) {
         replace_innerHTML("announcement", displaying_announcement)
         displaying_announcement += announcement_document[i]
@@ -33,6 +22,20 @@ async function on_load_display() {
     document.getElementById("login").style.display = "block"
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
+}
+function add_onload_event_listeners() {
+    document.body.addEventListener("click", skip_displaying)
+    document.body.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("login").click();
+        }
+    });
+    document.getElementById("media_music").addEventListener("ended", (event) => {
+        document.getElementById("media_music").src = "/music?music=random"
+        document.getElementById("media_music").play()
+    })
+    document.body.param = ["announcement", "announcement_finished"]
 }
 function play_random_music() {
     document.getElementById("media_music").src = "/music?music=random"

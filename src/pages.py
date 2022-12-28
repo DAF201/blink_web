@@ -42,6 +42,7 @@ class music_playing(tornado.web.RequestHandler):
         music = self.get_argument('music')
         if music == 'random':
             with static_files(MUSIC_PLAYLIST) as music_playlist:
+                random.Random(time.time())
                 music_title = random.choice(
                     list(music_playlist.__get_raw_list__().keys()))
                 self.write(music_playlist.__get_file__(music_title))
