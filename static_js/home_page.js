@@ -6,7 +6,7 @@ function skip_displaying() {
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
 }
-let announcement_document = "Hello, this is DAF201. Sadly, Blink-in turns to be APIs only currently due to some personal reasons. Thank you for your understanding!"
+let announcement_document = "Hello, this is DAF201.<br> Sadly, Blink-in turns to be APIs only currently due to some personal reasons.<br> Thank you for your understanding!"
 let displaying_announcement = ""
 async function on_load_display() {
     document.body.addEventListener("click", skip_displaying)
@@ -33,4 +33,8 @@ async function on_load_display() {
     document.getElementById("login").style.display = "block"
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
+}
+function play_random_music() {
+    document.getElementById("media_music").src = "/music?music=random"
+    document.getElementById("media_music").play()
 }

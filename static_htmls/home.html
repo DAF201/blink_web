@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/favico">
     <link rel="stylesheet" href="/css?css=blank_page.css">
+    <link rel="stylesheet" href="/css?css=home_page.css">
     <link rel="stylesheet" href="/css?css=three_sections.css">
     <title>Blink-in Home Page</title>
 </head>
@@ -23,8 +24,12 @@
         <h1>But I still have musics and videos for you</h1>
         <div class="two_section_left">
             <h1>Music</h1>
-            <audio controls id="media_music" type="audio/mpeg" src="/music?music=random" preload="auto">
+            <audio id="media_music" type="audio/mpeg" src="/music?music=random" preload="auto">
             </audio>
+            <div class="scrollable" id="media_music_list"
+                style="border-radius: 15px;background-color: rgb(15,15,15);min-width:10vw;">
+                <h2 onclick="play_random_music()">Random song</h2>
+            </div>
         </div>
         <div class="two_section_right">
             <h1>Video</h1>
