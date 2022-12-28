@@ -10,6 +10,7 @@ let announcement_document = "Hello, this is DAF201.<br> Sadly, Blink-in turns to
 let displaying_announcement = ""
 async function on_load_display() {
     add_onload_event_listeners()
+    load_songs()
     for (let i = 0; i < announcement_document.length + 1; i++) {
         replace_innerHTML("announcement", displaying_announcement)
         displaying_announcement += announcement_document[i]
@@ -43,4 +44,18 @@ function play_random_music() {
     request('get', '/music?music=get_title', [], function (args) {
         document.getElementById("media_music_now_playing").innerHTML = args
     })
+}
+function load_songs() {
+    request('get', '/music?music=get_list', [], function (args) {
+        let media_music_list = document.getElementById("media_music_list")
+        music_playlist = JSON.parse(args)
+        for (let i = 0; i < music_playlist.length; i++) {
+            media_music_list.insertAdjacentHTML("beforeend", "<h2 onclick=play_music(this)>" + music_playlist[i] + "</h2>")
+        }
+    })
+}
+function play_music(obj) {
+    document.getElementById("media_music").src = "/music?music=" + obj.innerHTML
+    document.getElementById("media_music").play()
+    document.getElementById("media_music_now_playing").innerHTML = obj.innerHTML
 }

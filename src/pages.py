@@ -47,6 +47,13 @@ class music_playing(tornado.web.RequestHandler):
                     list(music_playlist.__get_raw_list__().keys()))
                 self.write(music_playlist.__get_file__(music_title))
                 NOW_PLAYING = music_title
+            return
         if music == 'get_title':
-            print(NOW_PLAYING)
             self.write(NOW_PLAYING)
+            return
+        if music == 'get_list':
+            with static_files(MUSIC_PLAYLIST) as music_playlist:
+                self.write(json.dumps(music_playlist.__get_list__()))
+            return
+        with static_files(MUSIC_PLAYLIST) as music_playlist:
+            self.write(music_playlist.__get_file__(music))
