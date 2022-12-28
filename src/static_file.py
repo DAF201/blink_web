@@ -1,6 +1,8 @@
 import os
 import gc
 
+# to access files in folder
+
 
 class static_files_not_loaded_error(Exception):
     def __init__(self, *args: object) -> None:
