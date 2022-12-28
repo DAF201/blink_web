@@ -6,7 +6,7 @@ function skip_displaying() {
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
 }
-let announcement_document = "Hello, this is DAF201.<br> Sadly, Blink-in turns to be APIs only currently due to some personal reasons.<br> Thank you for your understanding!"
+let announcement_document = "Hello, this is DAF201. Sadly, Blink-in turns to be APIs only currently due to some personal reasons. Thank you for your understanding!"
 let displaying_announcement = ""
 async function on_load_display() {
     add_onload_event_listeners()

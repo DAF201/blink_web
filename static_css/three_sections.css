@@ -68,10 +68,12 @@ textarea {
     float: left;
     padding-left: 0;
     text-align: center;
+    height: 30vh;
 }
 
 .two_section_right {
     float: left;
-    padding-left: 50%;
+    padding-right: 0;
     text-align: center;
+    height: 30vh;
 }
