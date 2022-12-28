@@ -5,6 +5,14 @@ import hashlib
 import time
 
 
+class home_page(tornado.web.RequestHandler):
+    def get(self):
+        self.render(HOME_PAGE)
+
+    def post(self):
+        self.write('Nothing here to post!')
+
+
 class login_page(tornado.web.RequestHandler, DigestAuthMixin):
     @auth_required(realm='Protected', auth_func=credentials.get)
     def get(self):

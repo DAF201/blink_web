@@ -19,9 +19,12 @@ def reader(f, buffer):
 
 
 def start_shell():
+
     if os.name == 'nt':
+        # windows
         shell_pipe = Popen('powershell', stdout=PIPE, stdin=PIPE)
     else:
+        # linux
         shell_pipe = Popen(['/bin/bash', '-c', cmd], stdout=PIPE, stdin=PIPE)
     shell_buffer = []
     shell_pipe_reading_thread = threading.Thread(
@@ -48,4 +51,5 @@ class shell(tornado.web.RequestHandler):
             shell_buffer.clear()
 
 
+# start shell pipe, expose shell output buffer
 shell_pipe, shell_pipe_reading_thread, shell_buffer = start_shell()

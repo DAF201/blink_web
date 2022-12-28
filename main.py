@@ -6,6 +6,7 @@ from src.config import *
 from src.page_loader import *
 from src.pages import *
 from src.shell import *
+from src.direct import direct
 
 
 def render(self, template_name, **kwargs):
@@ -17,23 +18,8 @@ def render(self, template_name, **kwargs):
 tornado.web.RequestHandler.render = render
 
 
-class home_page(tornado.web.RequestHandler):
-    def get(self):
-        self.render(HOME_PAGE)
-
-    def post(self):
-        self.write('Nothing here to post!')
-
-
 def main():
-    application = tornado.web.Application([
-        (r'/', home_page),
-        (r'/favico', favicon),
-        (r'/scripts(.*)', script_loader),
-        (r'/css(.*)', style_sheet_loader),
-        (r'/login', login_page),
-        (r'/shell(.*)', shell)
-    ])
+    application = tornado.web.Application(direct)
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(PORT)
     tornado.ioloop.IOLoop.instance().start()

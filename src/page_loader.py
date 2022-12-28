@@ -2,6 +2,8 @@ import tornado.web
 from src.config import STATIC_JS, STATIC_CSS, STATIC_FILE, FAVICON
 from src.static_file import *
 
+# this help with loading html, js, and css
+
 
 class script_loader(tornado.web.RequestHandler):
     def get(self, *keys):
