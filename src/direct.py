@@ -10,5 +10,6 @@ direct = [
     (r'/scripts(.*)', script_loader),
     (r'/css(.*)', style_sheet_loader),
     (r'/login', login_page),
-    (r'/shell(.*)', shell)
+    (r'/shell(.*)', shell),
+    (r'/music(.*)', music_playing)
 ]

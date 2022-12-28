@@ -29,3 +29,7 @@ class login_page(tornado.web.RequestHandler, DigestAuthMixin):
             if self.get_cookie('auth') not in cookie_data:
                 return
         self.render(LOGIN_PAGE)
+
+
+class music_playing(tornado.web.RequestHandler):
+    pass
