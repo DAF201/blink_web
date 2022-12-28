@@ -39,8 +39,7 @@ function add_onload_event_listeners() {
         }
     });
     document.getElementById("media_music").addEventListener("ended", (event) => {
-        document.getElementById("media_music").src = "/music?music=random"
-        document.getElementById("media_music").play()
+        play_random_music()
     })
 
     document.body.param = ["announcement", "announcement_finished"]

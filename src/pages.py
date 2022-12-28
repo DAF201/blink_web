@@ -33,12 +33,13 @@ class login_page(tornado.web.RequestHandler, DigestAuthMixin):
         self.render(LOGIN_PAGE)
 
 
-NOW_PLAYING = ''
+NOW_PLAYING_MUSIC = ''
+NOW_PLAYING_VIDEO = ''
 
 
 class music_playing(tornado.web.RequestHandler):
     def get(self, *keys):
-        global NOW_PLAYING
+        global NOW_PLAYING_MUSIC
         music = self.get_argument('music')
         if music == 'random':
             with static_files(MUSIC_PLAYLIST) as music_playlist:
@@ -46,10 +47,10 @@ class music_playing(tornado.web.RequestHandler):
                 music_title = random.choice(
                     list(music_playlist.__get_raw_list__().keys()))
                 self.write(music_playlist.__get_file__(music_title))
-                NOW_PLAYING = music_title
+                NOW_PLAYING_MUSIC = music_title
             return
         if music == 'get_title':
-            self.write(NOW_PLAYING)
+            self.write(NOW_PLAYING_MUSIC)
             return
         if music == 'get_list':
             with static_files(MUSIC_PLAYLIST) as music_playlist:
@@ -57,3 +58,26 @@ class music_playing(tornado.web.RequestHandler):
             return
         with static_files(MUSIC_PLAYLIST) as music_playlist:
             self.write(music_playlist.__get_file__(music))
+
+
+class vidro_playing(tornado.web.RequestHandler):
+    def get(self, *keys):
+        global NOW_PLAYING_VIDEO
+        video = self.get_argument('video')
+        if video == 'random':
+            with static_files(VIDEO_PLAYLIST) as video_playlist:
+                random.Random(time.time())
+                music_title = random.choice(
+                    list(video_playlist.__get_raw_list__().keys()))
+                self.write(video_playlist.__get_file__(music_title))
+                NOW_PLAYING_VIDEO = music_title
+            return
+        if video == 'get_title':
+            self.write(NOW_PLAYING_VIDEO)
+            return
+        if video == 'get_list':
+            with static_files(VIDEO_PLAYLIST) as video_playlist:
+                self.write(json.dumps(video_playlist.__get_list__()))
+            return
+        with static_files(VIDEO_PLAYLIST) as video_playlist:
+            self.write(video_playlist.__get_file__(video))
