@@ -58,7 +58,7 @@ textarea {
 }
 
 .scrollable {
-    height: 70vh;
+    height: 60vh;
     overflow-y: auto;
     scrollbar-color: gray;
     text-align: left;
@@ -73,7 +73,8 @@ textarea {
 
 .two_section_right {
     float: left;
-    padding-right: 0;
+    padding-top: 5vh;
+    padding-left: 15vw;
     text-align: center;
     height: 30vh;
 }

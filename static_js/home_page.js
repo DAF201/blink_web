@@ -31,11 +31,18 @@ function add_onload_event_listeners() {
             event.preventDefault();
             document.getElementById("login").click();
         }
+        if (event.code === "KeyS") {
+            stop_media()
+        }
+        if (event.code === "KeyD") {
+            continue_media()
+        }
     });
     document.getElementById("media_music").addEventListener("ended", (event) => {
         document.getElementById("media_music").src = "/music?music=random"
         document.getElementById("media_music").play()
     })
+
     document.body.param = ["announcement", "announcement_finished"]
 }
 function play_random_music() {
@@ -58,4 +65,12 @@ function play_music(obj) {
     document.getElementById("media_music").src = "/music?music=" + obj.innerHTML
     document.getElementById("media_music").play()
     document.getElementById("media_music_now_playing").innerHTML = obj.innerHTML
+}
+
+function stop_media() {
+    document.getElementById("media_music").pause()
+}
+
+function continue_media() {
+    document.getElementById("media_music").play()
 }

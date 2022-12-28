@@ -22,7 +22,10 @@
     <div id="media_section" style="text-align: center;display: none;">
         <h1>But I still have musics and videos for you</h1>
         <div class="two_section_left">
-            <div>now playing:<h2 id="media_music_now_playing">None</h2>
+            <h1>Music:</h1>
+            <div>
+                <p>(press 's' to stop, press 'd' to continue)</p>now playing:
+                <h2 id="media_music_now_playing">None</h2>
             </div>
             <audio id="media_music" type="audio/mpeg" src="/music?music=random" preload="auto">
             </audio>
@@ -32,6 +35,7 @@
             </div>
         </div>
         <div class="two_section_right">
+            <video id="media_video" type="video/mp4" src="/video?video=random" preload="auto" controls></video>
         </div>
     </div>
 </body>

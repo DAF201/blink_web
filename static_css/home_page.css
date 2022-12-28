@@ -5,3 +5,8 @@ h2 {
     border-radius: 15px;
     font-size: medium;
 }
+
+video {
+    height: 100%;
+    width: 100%;
+}
