@@ -63,3 +63,15 @@ textarea {
     scrollbar-color: gray;
     text-align: left;
 }
+
+.two_section_left {
+    float: left;
+    padding-left: 0;
+    text-align: center;
+}
+
+.two_section_right {
+    float: left;
+    padding-left: 50%;
+    text-align: center;
+}

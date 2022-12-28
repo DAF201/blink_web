@@ -1,5 +1,5 @@
 from src.page_loader import style_sheet_loader, script_loader, favicon
-from src.pages import login_page, home_page
+from src.pages import login_page, home_page, music_playing
 from src.shell import shell
 
 # config file for page directing

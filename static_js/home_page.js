@@ -3,8 +3,9 @@ function skip_displaying() {
     replace_innerHTML(this.param[1], announcement_document)
     show_element([this.param[1]])
     document.getElementById("login").style.display = "block"
+    document.getElementById("media_section").style.display = "block"
 }
-let announcement_document = "Hello, this is DAF201. Sadly, Blink-in turns to be APIs only currently due to some personal reasons, I appreciate for your understanding, Thank you for your understanding!"
+let announcement_document = "Hello, this is DAF201. Sadly, Blink-in turns to be APIs only currently due to some personal reasons. Thank you for your understanding!"
 let displaying_announcement = ""
 async function on_load_display() {
     document.body.addEventListener('click', skip_displaying)
@@ -25,4 +26,5 @@ async function on_load_display() {
         }
     }
     document.getElementById("login").style.display = "block"
+    document.getElementById("media_section").style.display = "block"
 }

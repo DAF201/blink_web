@@ -1,8 +1,10 @@
 import tornado.web
-from src.config import *
 from tornado_http_auth import DigestAuthMixin, auth_required
 import hashlib
 import time
+import random
+from src.config import *
+from src.static_file import *
 
 
 class home_page(tornado.web.RequestHandler):
@@ -32,4 +34,10 @@ class login_page(tornado.web.RequestHandler, DigestAuthMixin):
 
 
 class music_playing(tornado.web.RequestHandler):
-    pass
+    def get(self, *keys):
+        music = self.get_argument('music')
+        if music == 'random':
+            with static_files(MUSIC_PLAYLIST) as music_playlist:
+                music_title = random.choice(
+                    list(music_playlist.__get_raw_list__().keys()))
+                self.write(music_playlist.__get_file__(music_title))
