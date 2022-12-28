@@ -12,7 +12,8 @@ class login_page(tornado.web.RequestHandler, DigestAuthMixin):
             # 'shio' means salt
             new_cookie = hashlib.sha256(
                 bytes(int(time.time()))+b'shio').hexdigest()
-            self.set_cookie('auth', new_cookie)
+            # I don't think it can last 10 years
+            self.set_cookie('auth', new_cookie, expires_days=365*10)
             cookie_data.append(new_cookie)
             with open(COOKIE_DATA_BASE, 'w')as cookie_data_base:
                 json.dump(cookie_data, cookie_data_base)
