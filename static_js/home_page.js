@@ -38,6 +38,7 @@ function add_onload_event_listeners() {
             if (document.getElementById("media_music_now_playing").innerHTML != "None" || document.getElementById("media_video_now_playing").innerHTML != "None") {
                 media_toggle()
             }
+            return
         }
         if (event.code === "KeyF") {
             if (document.getElementById("media_music_now_playing").innerHTML != "None" || document.getElementById("media_video_now_playing").innerHTML != "None") {
@@ -45,6 +46,15 @@ function add_onload_event_listeners() {
                     document.getElementById("media_video").requestFullscreen()
                 }
             }
+            return
+        }
+        if (event.code === "Period") {
+            media_time_shift("forward")
+            return
+        }
+        if (event.code === "Comma") {
+            media_time_shift("backward")
+            return
         }
     });
     document.getElementById("media_music").addEventListener("ended", (event) => {
@@ -62,7 +72,6 @@ function add_onload_event_listeners() {
         CURRENT_MEDIA_TYPE = "VIDEO"
     })
     document.getElementById("media_video").addEventListener("play", (event) => {
-        print("TEST")
         MEDIA_PLAYING = true
         CURRENT_MEDIA_TYPE = "VIDEO"
     })

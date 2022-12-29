@@ -78,3 +78,26 @@ function media_toggle() {
         MEDIA_PLAYING = true
     }
 }
+function media_time_shift(time_shift) {
+    if (CURRENT_MEDIA_TYPE == "MUSIC") {
+        let audio = document.getElementById("media_music")
+        // let duration = document.getElementById("media_music").duration;
+        if (time_shift == "forward") {
+            audio.currentTime = audio.currentTime + 15
+        } else {
+            audio.currentTime = audio.currentTime - 15
+        }
+
+        return
+    }
+
+    if (CURRENT_MEDIA_TYPE == "VIDEO") {
+        let video = document.getElementById("media_video")
+        if (time_shift == "forward") {
+            video.currentTime = video.currentTime + 15
+        } else {
+            video.currentTime = video.currentTime - 15
+        }
+        return
+    }
+}
