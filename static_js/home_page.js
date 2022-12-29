@@ -27,12 +27,17 @@ async function on_load_display() {
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
 }
+var first_load = true
 function add_onload_event_listeners() {
     document.body.addEventListener("click", skip_displaying)
     document.body.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("login").click();
+            if (first_load) {
+                event.preventDefault();
+                document.getElementById("login").click();
+                first_load = false
+            }
+            return
         }
         if (event.code === "KeyS") {
             if (document.getElementById("media_music_now_playing").innerHTML != "None" || document.getElementById("media_video_now_playing").innerHTML != "None") {
