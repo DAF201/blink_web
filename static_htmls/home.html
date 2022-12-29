@@ -21,12 +21,16 @@
     <h1 id="announcement_finished" style="display: none;"></h1>
     <button id="login" onclick="location.href = '/login';" style="display: none;">Go to Blink-in remote
         terminal</button>
-    <div id="media_section" style="text-align: center;display: none;">
-        <h1>But I still have musics and videos for you</h1>
+    <div id="announcement_media" style="display: none;">
+        <h1 style="padding-left: 30vw;">But I still have musics and videos for you</h1>
+        <p style="padding-left: 40vw;">(press 's' to stop and continue, 'f' to fullscreen)</p>
+    </div>
+
+    <div id="media_section" style="text-align:center;display: none;">
         <div class="two_section_left">
             <h1>Music:</h1>
             <div>
-                <p>(press 's' to stop, press 'd' to continue)</p>now playing:
+                now playing:
                 <h2 id="media_music_now_playing">None</h2>
             </div>
             <audio id="media_music" type="audio/mpeg" src="/music?music=random" preload="auto">
@@ -37,10 +41,10 @@
             </div>
         </div>
         <div class="two_section_right">
-            <video id="media_video" type="video/mp4" src="/video?video=random" preload="auto" controls
+            <video id="media_video" type="video/mp4" src="/video?video=random" preload="auto"
                 style="size:unset;padding-top: 10vh;"></video>
         </div>
-        <div style="position: absolute;right: 0;padding-right: 5vw;">
+        <div style="position: absolute;right: 0;">
             <h1>Video:</h1>
             <div>
                 now playing:

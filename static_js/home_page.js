@@ -3,6 +3,7 @@ function skip_displaying() {
     replace_innerHTML(this.param[1], announcement_document)
     show_element([this.param[1]])
     document.getElementById("login").style.display = "block"
+    document.getElementById("announcement_media").style.display = "block"
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
 }
@@ -11,6 +12,7 @@ let displaying_announcement = ""
 async function on_load_display() {
     add_onload_event_listeners()
     load_songs()
+    load_videos()
     for (let i = 0; i < announcement_document.length + 1; i++) {
         replace_innerHTML("announcement", displaying_announcement)
         displaying_announcement += announcement_document[i]
@@ -21,6 +23,7 @@ async function on_load_display() {
         }
     }
     document.getElementById("login").style.display = "block"
+    document.getElementById("announcement_media").style.display = "block"
     document.getElementById("media_section").style.display = "block"
     document.body.removeEventListener("click", skip_displaying)
 }
@@ -32,15 +35,36 @@ function add_onload_event_listeners() {
             document.getElementById("login").click();
         }
         if (event.code === "KeyS") {
-            stop_media()
+            if (document.getElementById("media_music_now_playing").innerHTML != "None" || document.getElementById("media_video_now_playing").innerHTML != "None") {
+                media_toggle()
+            }
         }
-        if (event.code === "KeyD") {
-            continue_media()
+        if (event.code === "KeyF") {
+            if (document.getElementById("media_music_now_playing").innerHTML != "None" || document.getElementById("media_video_now_playing").innerHTML != "None") {
+                if (CURRENT_MEDIA_TYPE == "VIDEO") {
+                    document.getElementById("media_video").requestFullscreen()
+                }
+            }
         }
     });
     document.getElementById("media_music").addEventListener("ended", (event) => {
         play_random_music()
+        MEDIA_PLAYING = true
+        CURRENT_MEDIA_TYPE = "MUSIC"
     })
-
+    document.getElementById("media_music").addEventListener("play", (event) => {
+        MEDIA_PLAYING = true
+        CURRENT_MEDIA_TYPE = "MUSIC"
+    })
+    document.getElementById("media_video").addEventListener("ended", (event) => {
+        play_random_video()
+        MEDIA_PLAYING = true
+        CURRENT_MEDIA_TYPE = "VIDEO"
+    })
+    document.getElementById("media_video").addEventListener("play", (event) => {
+        print("TEST")
+        MEDIA_PLAYING = true
+        CURRENT_MEDIA_TYPE = "VIDEO"
+    })
     document.body.param = ["announcement", "announcement_finished"]
 }
