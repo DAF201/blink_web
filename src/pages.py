@@ -5,6 +5,7 @@ import time
 import random
 from src.config import *
 from src.static_file import *
+from src.github_upload import *
 
 
 class home_page(tornado.web.RequestHandler):
@@ -72,5 +73,7 @@ class video_playing(tornado.web.RequestHandler):
 class blink_in(tornado.web.RequestHandler):
     def post(self):
         # this is a list
-        print(self.request.files.get('file'))
+        print(self.request.files.get('file')[0]['body'])
+        print(self.request.arguments)
+
         pass
