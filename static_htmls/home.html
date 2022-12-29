@@ -40,6 +40,17 @@
             <video id="media_video" type="video/mp4" src="/video?video=random" preload="auto" controls
                 style="size:unset;padding-top: 10vh;"></video>
         </div>
+        <div style="position: absolute;right: 0;padding-right: 5vw;">
+            <h1>Video:</h1>
+            <div>
+                now playing:
+                <h2 id="media_video_now_playing">None</h2>
+            </div>
+            <div class="scrollable" id="media_video_list"
+                style="border-radius: 15px;background-color: rgb(15,15,15);min-width:10vw;">
+                <h2 onclick="play_random_video()">Random video</h2>
+            </div>
+        </div>
     </div>
 </body>
 
