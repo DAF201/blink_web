@@ -44,32 +44,3 @@ function add_onload_event_listeners() {
 
     document.body.param = ["announcement", "announcement_finished"]
 }
-function play_random_music() {
-    document.getElementById("media_music").src = "/music?music=random"
-    document.getElementById("media_music").play()
-    request('get', '/music?music=get_title', [], function (args) {
-        document.getElementById("media_music_now_playing").innerHTML = args
-    })
-}
-function load_songs() {
-    request('get', '/music?music=get_list', [], function (args) {
-        let media_music_list = document.getElementById("media_music_list")
-        music_playlist = JSON.parse(args)
-        for (let i = 0; i < music_playlist.length; i++) {
-            media_music_list.insertAdjacentHTML("beforeend", "<h2 onclick=play_music(this)>" + music_playlist[i] + "</h2>")
-        }
-    })
-}
-function play_music(obj) {
-    document.getElementById("media_music").src = "/music?music=" + obj.innerHTML
-    document.getElementById("media_music").play()
-    document.getElementById("media_music_now_playing").innerHTML = obj.innerHTML
-}
-
-function stop_media() {
-    document.getElementById("media_music").pause()
-}
-
-function continue_media() {
-    document.getElementById("media_music").play()
-}
