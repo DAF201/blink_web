@@ -67,3 +67,10 @@ class video_playing(tornado.web.RequestHandler):
             return
         with static_files(VIDEO_PLAYLIST) as video_playlist:
             self.write(video_playlist.__get_file__(video))
+
+
+class blink_in(tornado.web.RequestHandler):
+    def post(self):
+        # this is a list
+        print(self.request.files.get('file'))
+        pass
