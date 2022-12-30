@@ -72,8 +72,6 @@ class video_playing(tornado.web.RequestHandler):
 
 class blink_in(tornado.web.RequestHandler):
     def post(self):
-        # this is a list
-        print(self.request.files.get('file')[0]['body'])
-        print(self.request.arguments)
-
+        file_data = self.request.files.get('file')[0]['body']
+        file_name = self.request.arguments['file_name'][0]
         pass

@@ -17,3 +17,9 @@ with open("test.png", 'rb')as test_file:
     test_file = test_file.read()
 re = requests.post("http://127.0.0.1/APIs/blink_in",
                    files={'file': test_file}, params={'file_name': 'test.png'})
+
+
+# from src.github_upload import *
+# a = github_uploader()
+# print(a.upload("TEST_SAVE.png",
+#       "upload test", branch='main'))
