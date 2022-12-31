@@ -11,13 +11,15 @@ with open("music_playlist\I want to be happy.mp3", 'rb')as test_file:
 re = requests.post("http://blink-in.com/APIs/blink_in",
                    files={'file': test_file})
 print(re.text)
-# {'content': ContentFile(path="2a2673e31f225f463dff5b989aab9b7e.png"), 'commit': Commit(sha="d222298efe3f77304c9282fdc0cc2fe257388aae")}
+# {'content': ContentFile(path="2a2673e31f225f463dff5b989aab9b7e.png"), \
+#   'commit': Commit(sha="d222298efe3f77304c9282fdc0cc2fe257388aae")}
 
 re = requests.get("http://blink-in.com/APIs/blink_in",
                   params={'file': '2a2673e31f225f463dff5b989aab9b7e'})
 with open('test.mp3', 'wb')as test:
     test.write(re.content)
-
+# you will get raw data of this file 
+# https://github.com/DAF201/blink-in_v0.0.2/blob/main/test.mp3
 ```
 
 rewriting with tornado
