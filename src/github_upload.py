@@ -1,7 +1,7 @@
 from github import Github, GithubException
 import json
 import hashlib
-with open('./static_files/github_token.json', 'r')as github_config:
+with open('./static_files/token.json', 'r')as github_config:
     github_config = json.load(github_config)
 github = Github(login_or_token=github_config['token'])
 github_user = github.get_user()
