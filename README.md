@@ -28,8 +28,19 @@ rewriting with tornado
 pip install requests, tornado, pillow, tornado_http_auth, pygithub
 ```
 
+Additionally you need to create a token.json in static_file folder
+
+```json
+{
+    "token": "a github token",
+    "repo": "a github inventory"
+}
+```
+
 GUI REMOVED! APIs are in progress. Now using console to remote control
 
 ![](https://github.com/DAF201/blink-in_v0.0.2/blob/main/images/Screenshot%20(149).png)
 ![](https://github.com/DAF201/blink-in_v0.0.2/blob/main/images/Screenshot%20(150).png)
 ![](https://github.com/DAF201/blink-in_v0.0.2/blob/main/images/Screenshot%20(151).png)
+
+"Don't try admin admin to login to console, I already changed the username and passsword"
