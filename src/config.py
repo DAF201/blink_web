@@ -26,4 +26,3 @@ PORT = 80
 # storage
 GITHUB_TOKEN = ''
 GITHUB_REPO_ADDRESS = ''
-LOCAL_FILE_BUFFER = os.getcwd()+'\\file_buffer\\'
