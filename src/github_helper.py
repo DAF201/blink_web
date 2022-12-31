@@ -3,6 +3,7 @@ from json import load
 from hashlib import md5
 from base64 import b64decode
 from src.tools import blink_in_decode
+from requests import get
 
 with open('./static_files/token.json', 'r')as github_config:
     github_config = load(github_config)
@@ -27,11 +28,12 @@ class github_helper():
                 return {'message': 'file already exists'}
             else:
                 return {'message': str(exception)}
+
     def download(self, file_name):
         try:
-            data = b64decode(github_repo.get_contents(
-                file_name).raw_data['content'])
-            return blink_in_decode(data)
+            url = github_repo.get_contents(file_name).raw_data['download_url']
+            raw_data = get(url=url).content
+            return blink_in_decode(raw_data)
         except GithubException as exception:
             if '"message": "Not Found"' in str(exception):
                 return {'message': 'file does not exist'}
