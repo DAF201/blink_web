@@ -3,7 +3,7 @@ import requests
 with open("test.py", 'rb')as test_file:
     test_file = test_file.read()
 re = requests.post("http://127.0.0.1/APIs/blink_in",
-                   files={'file': test_file}, params={'file_name': 'test.py'})
+                   files={'file': test_file})
 print(re.text)
 
 # from src.tools import *

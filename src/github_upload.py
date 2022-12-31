@@ -39,10 +39,10 @@ class github_uploader():
         self.github_user = github.get_user()
         self.github_repo = github_user.get_repo(github_config['repo'])
 
-    def upload(self, file_name, file_data):
+    def upload(self,  file_data):
         try:
-            res = github_repo.create_file(
-                file_name.split('.')[0]+hashlib.md5(file_data).hexdigest()[:4]+'.png', 'upload file', file_data, 'main')
+            res = github_repo.create_file(hashlib.md5(
+                file_data).hexdigest()+'.png', 'upload file', file_data, 'main')
             return res
         except GithubException as exception:
             if r"Invalid request.\n\n\"sha\" wasn't supplied." in str(exception):
