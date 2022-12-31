@@ -1,6 +1,5 @@
 import base64
 from PIL import Image
-import hashlib
 import gc
 import io
 
@@ -30,7 +29,7 @@ def factors(num):
             return (start, int(num/start))
 
 
-def extract_binary_data_from_image_object(image: Image.Image, format: str = "PNG") -> bytes:
+def extract_binary_data_from_image_object(image: Image.Image, format: str = 'PNG') -> bytes:
     try:
         byte_buffer = io.BytesIO()
         image.save(byte_buffer, format=format)
@@ -39,6 +38,7 @@ def extract_binary_data_from_image_object(image: Image.Image, format: str = "PNG
         return b''
     finally:
         byte_buffer.close()
+        gc.collect()
 
 
 def blink_in_encode(data) -> bytes:
@@ -51,6 +51,7 @@ def blink_in_encode(data) -> bytes:
         for y in range(data_image.size[1]):
             data_image_pixels[x, y] = data[counter]
             counter = counter+1
+    gc.collect()
     return extract_binary_data_from_image_object(data_image)
 
 
@@ -63,66 +64,5 @@ def blink_in_decode(data) -> bytes:
         for y in range(data_image.size[1]):
             data_buffer.append(data_image_pixels[x, y])
     data_buffer = base64.b64decode(bytes(data_buffer))
+    gc.collect()
     return data_buffer
-
-
-# class Blink_in():
-#     def __init__(self, data):
-#         self.data = data
-#         self.size = [0, 0]
-#         self.file_encode()
-
-#     def file_encode(self):
-#         self.__convert__()
-#         self.__image_filling__()
-
-#     def __convert__(self):
-#         try:
-#             self.data = base64.b64encode(self.data)
-#             self.size = factors(len(self.data))
-#             self.image = Image.new('L', self.size, (255))
-#             self.image_pixels = self.image.load()
-#         except:
-#             pass
-
-#     def __image_filling__(self):
-#         try:
-#             counter = 0
-#             for x in range(self.image.size[0]):
-#                 for y in range(self.image.size[1]):
-#                     self.image_pixels[x, y] = self.data[counter]
-#                     counter = counter+1
-#         except:
-#             pass
-
-#     @classmethod
-#     def extract_binary_data_from_image_object(self, image: Image.Image, format: str = "PNG") -> bytes:
-#         byte_buffer = io.BytesIO()
-#         image.save(byte_buffer, format=format)
-#         return byte_buffer.getvalue()
-
-# with open(r"C:\Users\daf20\Documents\GitHub\blink_web_en\test.png", 'rb')as test_file:
-#     encoded_image = Blink_in(test_file.read()).image
-
-# with open("TEST_SAVE.png", "rb")as test_image:
-#     print(Blink_in.extract_binary_data_from_image_object(
-#         encoded_image) == test_image.read())
-
-
-# encoded_image.save("TEST_SAVE.png")
-
-
-# DECODE
-
-
-# encoded = Image.open("TEST_SAVE.png")
-# pixels = encoded.load()
-# byte_map = []
-
-# for x in range(encoded.size[0]):
-#     for y in range(encoded.size[1]):
-#         byte_map.append(pixels[x, y])
-
-# with open("TEST_RES.png", "wb")as test_result:
-#     byte_map = base64.b64decode(bytes(byte_map))
-#     test_result.write(byte_map)
