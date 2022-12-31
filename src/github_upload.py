@@ -17,7 +17,7 @@ def github_upload(file_name, file_data):
     try:
         if file_name not in uploaded_files:
             res = github_repo.create_file(
-                file_name, 'upload file', file_data, 'main')
+                file_name+".png", 'upload file', file_data, 'main')
             return res
         else:
             raise
@@ -27,4 +27,7 @@ def github_upload(file_name, file_data):
                 file_name.split('.')[0]+hashlib.md5(file_data).hexdigest()[:10]+'.png', 'upload file', file_data, 'main')
             return res
         except GithubException as exception:
-            return exception
+            if r"Invalid request.\n\n\"sha\" wasn't supplied." in str(exception):
+                return {"ERROR": "FILE EXISTED"}
+            else:
+                return str(exception)

@@ -1,10 +1,10 @@
-# import requests
+import requests
 
-# with open("test.png", 'rb')as test_file:
-#     test_file = test_file.read()
-# re = requests.post("http://127.0.0.1/APIs/blink_in",
-#                    files={'file': test_file}, params={'file_name': 'test.png'})
-# print(re.text)
+with open("test.py", 'rb')as test_file:
+    test_file = test_file.read()
+re = requests.post("http://127.0.0.1/APIs/blink_in",
+                   files={'file': test_file}, params={'file_name': 'test.py'})
+print(re.text)
 
 # from src.tools import *
 # with open('test1.png', 'rb')as test1:
