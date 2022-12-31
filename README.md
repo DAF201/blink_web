@@ -1,7 +1,7 @@
 # blink-in_v0.0.2
 
 
-API example(temp, will change in the future):
+API example (temporary, will change in the future):
 
 ```python
 import requests
