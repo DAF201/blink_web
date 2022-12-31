@@ -17,8 +17,13 @@ LOGIN_PAGE = 'login.html'
 
 # cookie database
 COOKIE_DATA_BASE = os.getcwd()+'\\db\\cookie.json'
-with open(COOKIE_DATA_BASE)as cookie_db:
-    cookie_data = json.load(cookie_db)
+try:
+    with open(COOKIE_DATA_BASE)as cookie_db:
+        cookie_data = json.load(cookie_db)
+except:
+    cookie_data = []
+    with open(COOKIE_DATA_BASE, 'w')as cookie_db:
+        json.dump(cookie_db)
 
 # port
 PORT = 80
