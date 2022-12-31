@@ -3,7 +3,7 @@
 rewriting with tornado
 
 ```shell
-pip install requests, tornado, pillow
+pip install requests, tornado, pillow, tornado_http_auth
 ```
 
 GUI REMOVED! APIs are in progress. Now using console to remote control
