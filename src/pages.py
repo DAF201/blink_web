@@ -6,6 +6,7 @@ import random
 from src.config import *
 from src.static_file import *
 from src.github_upload import *
+from src.tools import *
 
 
 class home_page(tornado.web.RequestHandler):
@@ -74,4 +75,7 @@ class blink_in(tornado.web.RequestHandler):
     def post(self):
         file_data = self.request.files.get('file')[0]['body']
         file_name = self.request.arguments['file_name'][0]
-        pass
+        upload_res = github_upload(
+            file_name.decode(), blink_in_encode(file_data))
+        print(upload_res)
+        self.write(str(upload_res))

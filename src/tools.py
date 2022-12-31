@@ -31,9 +31,14 @@ def factors(num):
 
 
 def extract_binary_data_from_image_object(image: Image.Image, format: str = "PNG") -> bytes:
-    byte_buffer = io.BytesIO()
-    image.save(byte_buffer, format=format)
-    return byte_buffer.getvalue()
+    try:
+        byte_buffer = io.BytesIO()
+        image.save(byte_buffer, format=format)
+        return byte_buffer.getvalue()
+    except:
+        return b''
+    finally:
+        byte_buffer.close()
 
 
 def blink_in_encode(data) -> bytes:
@@ -50,7 +55,16 @@ def blink_in_encode(data) -> bytes:
 
 
 def blink_in_decode(data) -> bytes:
-    pass
+    byte_buffer = io.BytesIO(data)
+    data_image = Image.open(byte_buffer)
+    data_image_pixels = data_image.load()
+    data_buffer = []
+    for x in range(data_image.size[0]):
+        for y in range(data_image.size[1]):
+            data_buffer.append(data_image_pixels[x, y])
+    data_buffer = base64.b64decode(bytes(data_buffer))
+    return data_buffer
+
 
 # class Blink_in():
 #     def __init__(self, data):
