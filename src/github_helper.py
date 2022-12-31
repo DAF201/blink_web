@@ -1,7 +1,6 @@
 from github import Github, GithubException
 from json import load
 from hashlib import md5
-from base64 import b64decode
 from src.tools import blink_in_decode
 from requests import get
 

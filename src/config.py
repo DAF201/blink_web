@@ -23,7 +23,7 @@ try:
 except:
     cookie_data = []
     with open(COOKIE_DATA_BASE, 'w')as cookie_db:
-        json.dump(cookie_db)
+        json.dump(cookie_data, cookie_db)
 
 # port
 PORT = 80
