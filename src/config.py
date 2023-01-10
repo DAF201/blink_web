@@ -2,7 +2,7 @@ import os
 import json
 
 # loging page username and password
-credentials = {'admin': 'admin'}
+credentials = {'daf201': 'having a good time?'}
 
 # static files folder
 STATIC_HTML = os.getcwd()+'\\static_htmls\\'
@@ -26,8 +26,11 @@ except:
         json.dump(cookie_data, cookie_db)
 
 # port
-PORT = 80
+PORT = 443
 
 # storage
 GITHUB_TOKEN = ''
 GITHUB_REPO_ADDRESS = ''
+
+CERTFILE = r'C:\Certbot\live\www.blink-in.com\fullchain.pem'
+PRIVATE_KEY = r'C:\Certbot\live\www.blink-in.com\privkey.pem'
