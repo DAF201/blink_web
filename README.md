@@ -1,5 +1,8 @@
 # blink-in_v0.0.2
 
+now with https:
+
+[https://blink-in.com](https://blink-in.com)
 
 API example (temporary, will change in the future):
 
