@@ -11,13 +11,13 @@ import requests
 
 with open("music_playlist\I want to be happy.mp3", 'rb')as test_file:
     test_file = test_file.read()
-re = requests.post("http://blink-in.com/APIs/blink_in",
+re = requests.post("https://blink-in.com/APIs/blink_in",
                    files={'file': test_file})
 print(re.text)
 # {'content': ContentFile(path="2a2673e31f225f463dff5b989aab9b7e.png"), \
 #   'commit': Commit(sha="d222298efe3f77304c9282fdc0cc2fe257388aae")}
 
-re = requests.get("http://blink-in.com/APIs/blink_in",
+re = requests.get("https://blink-in.com/APIs/blink_in",
                   params={'file': '2a2673e31f225f463dff5b989aab9b7e'})
 with open('test.mp3', 'wb')as test:
     test.write(re.content)
