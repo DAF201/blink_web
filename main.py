@@ -20,7 +20,10 @@ tornado.web.RequestHandler.render = render
 
 def main():
     application = tornado.web.Application(direct)
-    http_server = tornado.httpserver.HTTPServer(application)
+    http_server = tornado.httpserver.HTTPServer(application,ssl_options={
+        "certfile": CERTFILE,
+        "keyfile": PRIVATE_KEY,
+    })
     http_server.listen(PORT)
     tornado.ioloop.IOLoop.instance().start()
 
