@@ -1,5 +1,7 @@
 # blink-in_v0.0.2
 
+for usage, see [APIs](https://github.com/DAF201/blink-in_v0.0.2/blob/main/static_files/APIs.md)
+
 now with https:
 
 [https://blink-in.com](https://blink-in.com)
