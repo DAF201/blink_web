@@ -2,7 +2,7 @@
 
 Version 1.1, January 2023
 
-Copyright (c) 2022 DAF201
+Copyright (c) 2022-2023 DAF201
 
 Everyone can use, copy, and modify the copy of associated softwares, documents, and files if follow the following:
 
