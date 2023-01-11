@@ -5,7 +5,7 @@ http://blink-in.com (this will be redirect to https anyway...)
 
 https://blink-in.com
 
-Also I realy should load all static files into memory rather than read when requested, but my cheap server only has 500mb memory and 30gb disk space... So just load when needed... I don't want to set the server on fire.
+Also I realy should load all static files into memory rather than read when requested, but my cheap server only has 500mb memory and 30gb disk space... So just load when needed... I don't want to set the server on fire.(Maybe all I need is a extra static IP attached to my laptop, even my laptop has 16gb mem and 1000gb disk)
 
 # blink-in
 for small file storage, not bigger than 18mb
