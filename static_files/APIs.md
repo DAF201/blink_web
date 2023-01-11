@@ -1,7 +1,7 @@
 # HOME PAGE
 home page now is basically a music/video music player with my personal favorite songs loaded. Chrome cannot user "," and "." to forward/backward video, and firefox cannot skip the appearing text by clicking... whatever, I guess that is due to broswer kernals' differences. 
 
-http://blink-in.com
+http://blink-in.com (this will be redirect to https anyway...)
 
 https://blink-in.com
 
