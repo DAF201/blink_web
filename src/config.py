@@ -32,5 +32,6 @@ PORT = 443
 GITHUB_TOKEN = ''
 GITHUB_REPO_ADDRESS = ''
 
+# Because it is free!
 CERTFILE = r'C:\Certbot\live\www.blink-in.com\fullchain.pem'
 PRIVATE_KEY = r'C:\Certbot\live\www.blink-in.com\privkey.pem'
