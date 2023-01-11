@@ -1,3 +1,10 @@
+# HOME PAGE
+home page now is basically a music/video music player with my personal favorite songs loaded. Chrome cannot user "," and "." to forward/backward video, and firefox cannot skip the appearing text by clicking... whatever, I guess that is due to broswer kernals' differences. 
+
+http://blink-in.com
+
+https://blink-in.com
+
 # blink-in
 for small file storage, not bigger than 18mb
 ```python
@@ -30,7 +37,7 @@ a old toy I made about 2 years ago, hide your words/sentences in to "你好" (wh
 
 it is bsaically a static html with js, 
 
-just go to https://blink-in.com/APIs/cluster or use request to see source code which is here
+just go to https://blink-in.com/APIs/cluster or use request to see source code which is here, nothing very fancy at all
 
 ```python
 re = requests.get("https://blink-in.com/APIs/cluster").text
