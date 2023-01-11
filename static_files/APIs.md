@@ -5,6 +5,8 @@ http://blink-in.com (this will be redirect to https anyway...)
 
 https://blink-in.com
 
+Also I realy should load all static files into memory rather than read when requested, but my cheap server only has 500mb memory and 30gb disk space... So just load when needed... I don't want to set the server on fire.
+
 # blink-in
 for small file storage, not bigger than 18mb
 ```python
