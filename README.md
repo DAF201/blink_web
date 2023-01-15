@@ -32,7 +32,7 @@ rewriting with tornado
 required packages
 
 ```shell
-pip install requests, tornado, pillow, tornado_http_auth, pygithub
+pip install requests tornado pillow tornado_http_auth pygithub
 ```
 
 Additionally you need to create a token.json in static_file folder
