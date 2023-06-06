@@ -1,5 +1,7 @@
 # blink-in_v0.0.2
 
+# I noticed the server was not that stable, but I assume that was because of my laptop is too old (2017 version samsung with 16GB mem)...
+
 for usage, see [APIs](https://github.com/DAF201/blink-in_v0.0.2/blob/main/static_files/APIs.md)
 
 now with https:
