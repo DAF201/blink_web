@@ -4,11 +4,10 @@
 
 for usage, see [APIs](https://github.com/DAF201/blink-in_v0.0.2/blob/main/static_files/APIs.md)
 
-~now with https:~
+now with https again:
 
-~[https://blink-in.com](https://blink-in.com)~
+[https://blink-in.com](https://blink-in.com)
 
-[http://blink-in.com](http://blink-in.com)
 
 AWS price increased a lot last year, I move it to my laptop which cannot pass certification, then I remove ssl.
 
